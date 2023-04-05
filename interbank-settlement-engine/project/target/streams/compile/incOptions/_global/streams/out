@@ -1,0 +1,11 @@
+[debug] Created transactional ClassFileManager with tempDir = /Users/oluwaseyi/bigdataconcept/dev/framework/scala/ZIO/zio-temportal-workflow/interbank-epayment-workflow-engine/interbank-settlement-engine/project/target/scala-2.12/sbt-1.0/classes.bak
+[debug] About to delete class files:
+[debug] 	Deps.class
+[debug] 	Deps$.class
+[debug] We backup class files:
+[debug] 	Deps.class
+[debug] 	Deps$.class
+[debug] Registering generated classes:
+[debug] 	Deps.class
+[debug] 	Deps$.class
+[debug] Removing the temporary directory used for backing up class files: /Users/oluwaseyi/bigdataconcept/dev/framework/scala/ZIO/zio-temportal-workflow/interbank-epayment-workflow-engine/interbank-settlement-engine/project/target/scala-2.12/sbt-1.0/classes.bak

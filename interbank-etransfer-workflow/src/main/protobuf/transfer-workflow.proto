@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package com.digitalPlus.fintech.interbank.workflowEngine;
+
+
+enum TransferStatus {
+  STARTED = 0;
+  DEBITED = 1;
+  CREDITED = 2;
+  DEBIT_REVERSAL = 3;
+  CREDIT_REVERSAL = 4;
+  DEBIT_CONNECTION_ERROR = 5;
+  CREDIT_CONNECTION_ERROR = 6;
+  DEBIT_REVERSAL_CONNECTION_ERROR = 7;
+  CREDIT_REVERSAL_CONNECTION_ERROR = 8;
+  COMPLETED = 9;
+}
+
+message AccountHolder{
+    string name = 1;
+    string email = 2;
+    string mobileNumber = 3;
+}
+
+
+message TransferEvent{
+    string fromBankCode = 1;
+    string toBankCode = 2;
+    float amount = 3;
+}
+message Transfer{
+    string senderBankCode = 1;
+    string receiverBankCode = 2;
+    float amount = 3;
+    string narration = 4;
+    AccountHolder sender = 5;
+    AccountHolder receiver = 6;
+
+}
+
+
+ message TransferReference{
+      string senderBankReference = 1;
+      string receivingBankReference = 2;
+ }
+
+message TransferError {
+    int32 code = 1;
+    string message = 2;
+}
+
+message FundTransferView{
+  TransferStatus status = 1;
+  float amount = 2;
+  string senderBank = 3;
+  string receivingBank = 4;
+  TransferReference transferReference = 5;
+}

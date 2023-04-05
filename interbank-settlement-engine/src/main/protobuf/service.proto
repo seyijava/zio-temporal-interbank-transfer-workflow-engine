@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.digitalPlus.fintech.interbank.settlement";
+option java_outer_classname = "SettlementGatewayProto";
+option objc_class_prefix = "Settlement";
+
+package  service;
+
+message AccountHolder{
+  string name = 1;
+  string email = 2;
+  string mobileNumber = 3;
+}
+
+message BankCode{
+    string code = 1;
+}
+message Amount{
+   float  amount = 1;
+}
+
+message TransferRequest{
+     enum TRANSFER_TYPE {
+        CREDIT = 0;
+        DEBIT = 1;
+        REVERSAL =2;
+     }
+     BankCode bankCode = 1;
+     Amount amount = 2;
+     string narration = 3;
+     AccountHolder accountHolder = 4;
+     TRANSFER_TYPE transferType = 5;
+}
+message VoidResponse {}
+
+message TransferResponse {
+   string transferReferenceNumber = 1;
+}
+
+service InterBankTransferGateway{
+    rpc transfer(TransferRequest) returns (TransferResponse) {}
+}
